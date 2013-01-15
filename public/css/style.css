@@ -1,0 +1,115 @@
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+  background: url('../img/whitey.png');
+}
+
+.navbar-fixed-top {
+  box-shadow: 0px 0px 3px #000;
+  border-bottom: 1px solid #999;
+}
+
+.geddy-welcome-box {
+  text-align: center;
+  background-color: rgba(200, 200, 200, .5);
+  box-shadow: 0px 0px 3px #bababa;
+  border: 1px solid #EDEDED;
+}
+
+.geddy-welcome-box h1 {
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.geddy-welcome-box p {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.geddy-welcome-box .btn-large {
+  margin-top: 20px;
+}
+
+.list-item {
+  margin-bottom: 20px;
+}
+
+.list-item div {
+  background: white;
+  border-bottom: 2px solid #ccc;
+}
+
+.list-item div > * {
+  padding: 20px;
+}
+
+.list-item div h3 i {
+  margin: 5px;
+}
+
+.item {
+	width: 250px;
+	padding: 30px;
+	margin: 30px;
+	background-color: #eee;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+@media (max-width:480px) {
+  .hero-unit .pull-right {
+    float: none;
+    margin-top: 10px;
+  }
+}
