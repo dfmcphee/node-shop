@@ -48,4 +48,5 @@ router.get('/auth/twitter/callback').to('Auth.twitterCallback');
 router.get('/auth/facebook').to('Auth.facebook');
 router.get('/auth/facebook/callback').to('Auth.facebookCallback');
 router.resource('users');
+router.resource('cart_items');
 exports.router = router;

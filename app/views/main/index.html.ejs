@@ -1,10 +1,9 @@
-<!-- Lets talk about geddy -->
 <div class="hero-unit geddy-welcome-box">
   <% if (user) { %>
     <h1>
       Hello<% if (user.givenName) { %>, <%= user.givenName %><% } %>
     </h1>
-    <p>You've successfully logged in to this Geddy app (via <%= authType %>).</p>
+    <p>You've successfully logged in to OttawaSounds (via <%= authType %>).</p>
     <p><a href="/logout">Click here to log back out.</a></p>
   <% } else { %>
     <h1>Hello, stranger</h1>

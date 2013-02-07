@@ -60,7 +60,7 @@ body {
 /**** Isotope Filtering ****/
 
 .isotope-item {
-  z-index: 2;
+  z-index: 0;
 }
 
 .isotope-hidden.isotope-item {
@@ -112,4 +112,55 @@ body {
     float: none;
     margin-top: 10px;
   }
+}
+
+/* Sticky cart footer styles
+      -------------------------------------------------- */
+      
+.icon-huge {
+	font-size:4em;
+	float:right;
+}
+
+span.badge-huge {
+	float: right;
+	font-size: 2em;
+	padding: 13px;
+	margin: 10px 5px 0px 10px;
+	border-radius: 16px;
+}
+
+#footerSlideContainer {
+	position: fixed;
+	bottom:0;
+	width: 100%;
+}
+#footerSlideButton {
+	position: absolute;
+	top: -55px;
+	right: 20px;
+	width:50px;
+	height:50px;
+	border: none;
+	cursor: pointer;
+}
+#footerSlideContent {
+	width: 100%;
+	height: 0px;
+	overflow-y: scroll;
+	background: #007c9a;
+	color: #EEE;
+	font-size: 0.8em;
+	border: none;
+}
+#footerSlideCart {
+	padding: 15px 10px 25px 25px;
+}
+
+#cart.table-hover tbody tr:hover td, #cart.table-hover tbody tr:hover th {
+	background-color: #00728e;
+}
+
+#cart span.badge {
+	margin-right: 10px;
 }

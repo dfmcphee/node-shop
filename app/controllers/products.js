@@ -41,7 +41,9 @@ var Products = function () {
     var self = this;
 
     geddy.model.Product.first(params.id, function(err, product) {
-      self.respond({params: params, product: product.toObj()});
+      if (product) {
+      	self.respond({params: params, product: product.toObj()});
+      }
     });
   };
 
@@ -49,6 +51,12 @@ var Products = function () {
     var self = this;
 
     geddy.model.Product.first(params.id, function(err, product) {
+      function htmlEntities(str) {
+	    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+	  }
+	
+      product.title = htmlEntities(product.title);
+      product.description = htmlEntities(product.description);
       self.respond({params: params, product: product});
     });
   };

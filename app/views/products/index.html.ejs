@@ -6,8 +6,9 @@
 <div id="products-list">
 	<% if (products) { %>
 		<% for (var i = 0, ii = products.length; i < ii; i++) { %>
-		  <div class="item" id="product-<%= products[i].id; %>">
+		  <div class="product item" id="product-<%= products[i].id; %>" data-product-id="<%= products[i].id; %>">
 		      <h3><%- linkTo(products[i].title, productPath(products[i].id)); %></h3>
+		      <a class="btn add-to-cart"><i class="icon icon-plus-sign-alt"></i> Add to Cart</a>
 		  </div>
 		<% } %>
 	<% } %>

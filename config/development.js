@@ -26,7 +26,7 @@ var config = {
   }
 , db: {
     mongo: {
-        dbname: 'nodeshop'
+        dbname: 'ottawasounds'
     }
 }
 , sessions: {

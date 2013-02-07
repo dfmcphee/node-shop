@@ -3,15 +3,15 @@
   "version": "0.0.1",
   "dependencies": {
     "geddy": "0.6.x",
-    "mongodb-wrapper": "*",
-    "passport": "*",
-    "passport-local": "*",
-    "passport-facebook": "*",
-    "passport-twitter": "*"
+    "mongodb-wrapper": "",
+    "passport": "",
+    "passport-local": "",
+    "passport-facebook": "",
+    "passport-twitter": ""
   },
   "subdomain": "node-shop",
   "scripts": {
-    "start": "app.js"
+    "start": "node app.js"
   },
   "engines": {
     "node": "0.8.x"
