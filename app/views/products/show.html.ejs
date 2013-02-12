@@ -1,17 +1,35 @@
-<div class="hero-unit">
-  <h2 class="title"><%= product.title %></h2>
-  <%- linkTo('Edit this product', editProductPath(params.id), {class: 'btn pull-right'}); %>
-</div>
-
-<h2>Product Properties</h2>
-<% for(var i in product) { -%>
-<% if(i !== 'saved') { -%>
-<div class="row list-item">
-  <div class="span4">
-    <h3><%= i %></h3>
+<div class="hero-unit product" data-product-id="<%- params.id %>">
+  <div class="row">
+  	  <% if (product.photo) { %>
+		  <div class="span3">
+		  	<img src="<%- product.photo %>" />
+		  </div>
+	  <% } %>
+	  <div class="span7">
+		  <h2 class="title"><%= product.title %></h2>
+		  <p class="lead"><%- product.description %></p>
+	  </div>
   </div>
-  <div class="span8">
-    <h3><i class="icon-list-alt"></i><span class="<%= i %>"><%= product[i] %></span></h3>
+  <div class="row">
+	  <div class="span12">
+		  <% if (session.get('userId') && role === 'admin') { %>
+		  	<%- linkTo('Edit this product', editProductPath(params.id), {class: 'btn'}); %>
+		  <% } %>
+		  <a class="btn add-to-cart"><i class="icon icon-plus-sign-alt"></i> Add to Cart</a>
+	  </div>
+  </div>
+  <div class="row">
+  	<div class="span12">
+  		<% if (songs) { %>
+  			<audio preload></audio>
+  			<ol>
+			<% for (var i = 0; i < songs.length; i++) { %>
+				<li>
+					<a href="#" data-src="<%- songs[i].preview %>" preload="none"><%- songs[i].title %></a>
+				</li>
+			<% } %>
+			</ol>
+		<% } %>
+  	</div>
   </div>
 </div>
-<% } -%><% } -%>

@@ -12,4 +12,3 @@ if (geddy.config.environment != 'development') {
     geddy.log.error(msg);
   });
 }
-

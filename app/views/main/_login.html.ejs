@@ -1,0 +1,38 @@
+<!-- Lets talk about geddy -->
+<%- styleLink('/css/auth-buttons.css', {rel:'stylesheet'}) %>
+<div class="row">
+	<div class="span8 offset2">
+	  <p>
+	    <form id="login-form" class="form-horizontal" action="/auth/local" method="POST">
+	    <fieldset>
+	      <legend>You must login to start shopping.</legend>
+	      <div class="control-group">
+	        <label for="username" class="control-label">Username</label>
+	        <div class="controls">
+	          <%- contentTag('input', params.username, {type:'text', class:'span6', name:'username'}) %>
+	        </div>
+	      </div>
+	      <div class="control-group">
+	        <label for="password" class="control-label">Password</label>
+	        <div class="controls">
+	          <%- contentTag('input', params.password, {type:'password', class:'span6', name:'password'}) %>
+	        </div>
+	      </div>
+	      <div class="form-actions">
+	        <%- contentTag('input', 'Submit', {type: 'submit', class: 'btn btn-primary pull-right'}) %>
+	      </div>
+	    </fieldset>
+	    </form>
+	  </p>
+	
+	  <p style="text-align: center;">
+	    <a class="btn btn-network" href="<%= geddy.config.fullHostname %>/auth/twitter">
+	      <i class="icon icon-twitter"></i> Log in with Twitter
+	    </a>
+	    &nbsp;
+	    <a class="btn btn-network" href="<%= geddy.config.fullHostname %>/auth/facebook">
+	      <i class="icon icon-facebook"></i> Log in with Facebook
+	    </a>
+	  </p>
+	</div>
+</div>

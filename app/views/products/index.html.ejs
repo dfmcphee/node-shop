@@ -1,6 +1,8 @@
 <div class="hero-unit">
   <h2>All Products</h2>
-  <%- linkTo('Create a new Product', addProductPath, {class: 'btn pull-right'}); %>
+  <% if (session.get('userId') && role === 'admin') { %>
+  	<%- linkTo('Create a new Product', addProductPath, {class: 'btn pull-right'}); %>
+  <% } %>
 </div>
 
 <div id="products-list">
@@ -8,6 +10,9 @@
 		<% for (var i = 0, ii = products.length; i < ii; i++) { %>
 		  <div class="product item" id="product-<%= products[i].id; %>" data-product-id="<%= products[i].id; %>">
 		      <h3><%- linkTo(products[i].title, productPath(products[i].id)); %></h3>
+		       <% if (products[i].photo) { %>
+				  <img src="<%- products[i].photo %>" />
+			  <% } %>
 		      <a class="btn add-to-cart"><i class="icon icon-plus-sign-alt"></i> Add to Cart</a>
 		  </div>
 		<% } %>

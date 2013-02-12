@@ -7,14 +7,37 @@ var Products = function () {
     except: ['index', 'show']
   });
   
+  function getUserRole(user, session) {
+	if (user.role) {
+		return user.role;
+	}
+	else {
+		return false;
+	}
+  }
+  
   this.respondsWith = ['html', 'json', 'xml', 'js', 'txt'];
 
   this.index = function (req, resp, params) {
     var self = this;
-
-    geddy.model.Product.all(function(err, products) {
-      self.respond({params: params, products: products});
-    });
+    var userId = this.session.get('userId');
+    
+    if (userId) {
+	  geddy.model.User.first(function (err, user) {
+		if (!err && user) {
+	    	role = getUserRole(user, this.session);
+	    }
+	    
+	    geddy.model.Product.all(function(err, products) {
+	      self.respond({params: params, products: products, role:role });
+	    });
+	  });
+    }
+    else {
+	    geddy.model.Product.all(function(err, products) {
+	      self.respond({params: params, products: products});
+	    });
+    }
   };
 
   this.add = function (req, resp, params) {
@@ -39,11 +62,25 @@ var Products = function () {
 
   this.show = function (req, resp, params) {
     var self = this;
-
+    var userId = this.session.get('userId');
+    
     geddy.model.Product.first(params.id, function(err, product) {
-      if (product) {
-      	self.respond({params: params, product: product.toObj()});
-      }
+    	if (product){
+			geddy.model.Song.all({productId: params.id}, {sort: {track: 'asc'}}, function(err, songs) {
+			    if (userId) {
+					geddy.model.User.first(function (err, user) {
+						if (!err && user) {
+				    		role = getUserRole(user, this.session);
+				    	}
+				    	
+				    	self.respond({params: params, product: product.toObj(), role: role, songs: songs});
+				    });
+			    }
+			    else {
+			      	self.respond({params: params, product: product.toObj(), songs: songs});
+			    }
+			 });
+		}
     });
   };
 

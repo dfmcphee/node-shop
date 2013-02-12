@@ -40,30 +40,11 @@
 	    <div id="push"></div>
     </div>
     
-    <% if (session.get('userId')) { %>
-	    <div id="footerSlideContainer">
-			<div id="footerSlideButton"><i class="icon icon-shopping-cart icon-huge"></i></div>
-			<div id="footerSlideContent">
-				<div id="footerSlideCart">
-					<h2>Shopping Cart</h2>
-					<table id="cart" class="table table-hover table-bordered">
-						<thead>
-							<th>Name</th>
-							<th>Description</th>
-							<th>Price</th>
-							<th>Quantity</th>
-						</thead>
-						<tbody>
-						</tbody>
-					</table>
-					<p class="lead">
-						Total: $<span id="cart-total">0.00</span>
-					</p>
-				</div>
-			</div>
-		</div>
+    <%= partial("main/_footer", {params: params, session: session}) %>
+    
+	<% if (session.get('userId')) { %>
 		<script>var userId = "<%- session.get('userId') %>";</script>
-    <% } %>
+	<% } %>
     
     <!-- The HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -73,8 +54,8 @@
     <%- scriptLink('/js/jquery.min.js', {type:'text/javascript'}) %>
     <%- scriptLink('/js/bootstrap.min.js', {type:'text/javascript'}) %>
     <%- scriptLink('/js/isotope.min.js', {type:'text/javascript'}) %>
+    <%- scriptLink('/js/audio.min.js', {type:'text/javascript'}) %>
     <%- scriptLink('/js/core/core.js', {type: 'text/javascript'}) %>
-    <!-- <%- scriptLink('/js/models/your_model.js', {type:'text/javascript'}) %> -->
     <%- scriptLink('/js/config/init.js', {type: 'text/javascript'}) %>
     <%- scriptLink('/js/app.js', {type: 'text/javascript'}) %>
   </body>

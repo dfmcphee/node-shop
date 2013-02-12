@@ -1,18 +1,21 @@
 {
   "name": "node-shop",
-  "version": "0.0.1",
-  "dependencies": {
-    "geddy": "0.6.x",
-    "mongodb-wrapper": "",
-    "passport": "",
-    "passport-local": "",
-    "passport-facebook": "",
-    "passport-twitter": ""
-  },
-  "subdomain": "node-shop",
+  "version": "0.1.0-15",
+  "description": "OttawaSounds",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
+  "dependencies": {
+    "geddy": "0.6.18",
+    "mongodb-wrapper": "0.4.x",
+    "passport": "",
+    "passport-local": "",
+    "passport-facebook": "",
+    "passport-twitter": "",
+    "redis": ""
+  },
+  "subdomain": "node-shop",
   "engines": {
     "node": "0.8.x"
   }

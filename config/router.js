@@ -49,4 +49,5 @@ router.get('/auth/facebook').to('Auth.facebook');
 router.get('/auth/facebook/callback').to('Auth.facebookCallback');
 router.resource('users');
 router.resource('cart_items');
+router.resource('songs');
 exports.router = router;

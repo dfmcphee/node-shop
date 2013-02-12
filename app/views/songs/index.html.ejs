@@ -1,0 +1,19 @@
+<div class="hero-unit">
+  <h2>All Songs</h2>
+  <%- linkTo('Create a new Song', addSongPath, {class: 'btn pull-right'}); %>
+</div>
+
+<div id="songs-list">
+<% if (songs) { %>
+<% for (var i = 0, ii = songs.length; i < ii; i++) { %>
+  <div class="row list-item" id="song-<%= songs[i].id; %>">
+    <div class="span8">
+      <h3><%- linkTo(songs[i].id, songPath(songs[i].id)); %></h3>
+    </div>
+    <div class="span4">
+      <h3><i class="icon-list-alt"></i><%= songs[i].id; %></h3>
+    </div>
+  </div>
+<% } %>
+<% } %>
+</div>
